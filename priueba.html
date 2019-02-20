@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <title>GitHub User Repositories</title>
+</head>
+<body>
+<div class="col-sm-8">
+  <h2>Tabla usuario</h2>
+  <p>Hay cosas:</p>
+    <p>        </p>
+	  <p>      </p>
+	    <p>      </p>
+		  <p>     </p>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Descripción</th>
+        <th>Followers</th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>
+<script>
+$(document).ready(function(){
+  $("#boton1").click(function(){
+    alert("Value: " + $("#username").val());
+	
+	 
+});
+});
+</script>
+ <div class="container">
+      <div class="col-sm-4">
+       
+         
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-ok-sign"></span> Buscador de amigos
+        </a>
+      </p
+	  </div>
+<script>
+$(document).ready(function(){
+$('#username').focus();
+$('#boton2').click(function () {
+          $('table tbody').empty();
+          var username = $('#username').val();
+          $.get('https://api.github.com/users/' + username + '/repos', function(data, status) {
+            
+			
+			for (var i = 0; i < data.length; i++) {
+      
+        var $tr = $('<tr></tr>');
+        $tr.append('<td>' + data.[i].name + '</td>');
+        $tr.append('<td>' + data.[i].description + '</td>');
+        $tr.append('<td>' + data.[i].stargazers_count + '</td>');
+        
+          });
+  });
+  });
+</script>
+
+
+<table id="Table"></table>
+</div>
+
+
+</head>
+<body>
+
+<p>Name: <input type="text" id="username" value="Pon tu usuario"></p>
+
+<button id= "boton1">Show Value</button>
+
+<button id= "boton2">Cosas</button>
+
+<button id="button3"> A ver este </button>
+
+
+ 
+
+
+</body>
+</html>
