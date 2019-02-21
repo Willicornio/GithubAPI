@@ -62,7 +62,7 @@ $(document).ready(function(){
 			dataType: 'json',
 			success: function(data){				
 				$.each(data, function(index, datos){																
-					$("#table").append("<tr><td>" + usuario + "</td><td>" + datos.name + "</td><td>" + datos.description + "</td><td>https://github.com/" + datos.full_name + "</td></tr>");
+					$("#table").append("<tr><td>" + usuario + "</td><td>" + datos.name + "</td><td>" + datos.description + "</td><td>" + datos.stargazers_count + "</td></tr>");
 				});
 			}
 		})	
