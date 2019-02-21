@@ -27,7 +27,8 @@
         <th>Followers</th>
       </tr>
     </thead>
-    
+    <tbody id="table">     
+    </tbody>
   </table>
 </div>
 <script>
@@ -48,29 +49,30 @@ $(document).ready(function(){
         </a>
       </p
 	  </div>
-<script>
+	  
+	  
+ <script>
 $(document).ready(function(){
-$('#username').focus();
-$('#boton2').click(function () {
-          $('table tbody').empty();
-          var username = $('#username').val();
-          $.get('https://api.github.com/users/' + username + '/repos', function(data, status) {
-            
-			
-			for (var i = 0; i < data.length; i++) {
-      
-        var $tr = $('<tr></tr>');
-        $tr.append('<td>' + data.[i].name + '</td>');
-        $tr.append('<td>' + data.[i].description + '</td>');
-        $tr.append('<td>' + data.[i].stargazers_count + '</td>');
-        
-          });
-  });
-  });
+	$("button").click(function(){
+		$("#table").html(""); //primero vacio la tabla existente
+		var usuario = $("#username").val();
+		$.ajax({
+			type:'GET',
+			url:'https://api.github.com/users/'+ usuario +'/repos',
+			dataType: 'json',
+			success: function(data){				
+				$.each(data, function(index, datos){																
+					$("#table").append("<tr><td>" + usuario + "</td><td>" + datos.name + "</td><td>" + datos.description + "</td><td>https://github.com/" + datos.full_name + "</td></tr>");
+				});
+			}
+		})	
+	});
+});	
 </script>
 
 
-<table id="Table"></table>
+
+
 </div>
 
 
